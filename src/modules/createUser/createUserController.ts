@@ -9,11 +9,11 @@ export class createUserController {
 		try {
 			const { name, email, userName }: IUser = req.body
 
-			const user = this.createUser.execute({ name, email, userName })
+			const user = await this.createUser.execute({ name, email, userName })
 
-			return res.status(200).send({ user })
+			return res.status(201).json({ ...user })
 		} catch (err) {
-			return res.status(400).send({ err })
+			return res.status(400).json({ err })
 		}
 	}
 }
