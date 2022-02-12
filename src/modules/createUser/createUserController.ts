@@ -1,12 +1,13 @@
 import { Request, Response } from "express"
 import { createUserService } from "./createUserService"
+import { IUser } from "./IUserInterface"
 
 export class createUserController {
 	constructor(private createUser: createUserService) {}
 
 	async handle(req: Request, res: Response): Promise<Response> {
 		try {
-			const { name, email, userName } = req.body
+			const { name, email, userName }: IUser = req.body
 
 			const user = this.createUser.execute({ name, email, userName })
 

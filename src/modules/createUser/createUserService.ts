@@ -1,11 +1,6 @@
 import { User } from "../../entities/user"
 import { IUserRepository } from "../../repositories/IUserRepositories"
-
-interface IUser {
-	name: string
-	email: string
-	userName: string
-}
+import { IUser } from "./IUserInterface"
 
 export class createUserService {
 	constructor(private userRepository: IUserRepository) {}
